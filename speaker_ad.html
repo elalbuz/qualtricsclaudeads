@@ -1,0 +1,567 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f5f0e8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .ad {
+    width: 520px;
+    background: #f5f0e8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header {
+    background: #1a1a1a;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    color: #f5f0e8;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .header-badge {
+    background: #e8a020;
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+
+  .hero {
+    background: #1a1a1a;
+    position: relative;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg-circles {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bg-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 160, 32, 0.08);
+  }
+
+  .speaker-wrap {
+    position: relative;
+    z-index: 2;
+    animation: breathe 5s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.02) translateY(-5px); }
+  }
+
+  .sound-waves {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .wave-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(232, 160, 32, 0.25);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: wave-expand 2.4s ease-out infinite;
+  }
+  .wave-ring:nth-child(2) { animation-delay: 0.8s; }
+  .wave-ring:nth-child(3) { animation-delay: 1.6s; }
+
+  @keyframes wave-expand {
+    0% { width: 180px; height: 180px; opacity: 0.6; }
+    100% { width: 320px; height: 320px; opacity: 0; }
+  }
+
+  .hero-label {
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    font-size: 10px;
+    color: rgba(245, 240, 232, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .body {
+    padding: 24px 28px 28px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .eyebrow-line {
+    width: 28px;
+    height: 2px;
+    background: #e8a020;
+  }
+
+  .eyebrow-text {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .product-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 48px;
+    color: #1a1a1a;
+    line-height: 0.95;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
+  }
+
+  .product-subtitle {
+    font-size: 13px;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 22px;
+    letter-spacing: 0.2px;
+  }
+
+  .specs-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 22px;
+    border: 1px solid #ddd8ce;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .spec {
+    flex: 1;
+    padding: 12px 14px;
+    border-right: 1px solid #ddd8ce;
+    text-align: center;
+  }
+
+  .spec:last-child { border-right: none; }
+
+  .spec-val {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    display: block;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .spec-label {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .scarcity-block {
+    background: #1a1a1a;
+    border-radius: 2px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+
+  .sc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .sc-alert {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #e8a020;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    background: #e8a020;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+
+  .sc-count {
+    font-size: 11px;
+    color: #555;
+  }
+
+  .sc-count strong {
+    color: #e8a020;
+    font-weight: 700;
+  }
+
+  .stock-bar {
+    height: 3px;
+    background: #2e2e2e;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .stock-fill {
+    height: 100%;
+    width: 78%;
+    background: #e8a020;
+    border-radius: 2px;
+  }
+
+  .sc-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sc-note {
+    font-size: 11px;
+    color: #444;
+  }
+
+  .sc-sold {
+    font-size: 11px;
+    color: #444;
+  }
+
+  .timer-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .timer-eyebrow {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
+
+  .timer-blocks {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .t-block {
+    text-align: center;
+  }
+
+  .t-num {
+    display: block;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 24px;
+    color: #1a1a1a;
+    background: #ede8de;
+    border-radius: 2px;
+    padding: 4px 10px;
+    min-width: 48px;
+    line-height: 1;
+  }
+
+  .t-unit {
+    display: block;
+    font-size: 9px;
+    color: #bbb;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .t-sep {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    color: #ccc;
+    padding-bottom: 14px;
+  }
+
+  .price-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .price-col {
+    flex: 0 0 auto;
+  }
+
+  .price-now {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 44px;
+    color: #1a1a1a;
+    line-height: 1;
+  }
+
+  .price-was {
+    font-size: 14px;
+    color: #bbb;
+    text-decoration: line-through;
+  }
+
+  .price-save-pill {
+    display: inline-block;
+    background: #e8a020;
+    color: #1a1a1a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 1px;
+    margin-top: 3px;
+  }
+
+  .cta-btn {
+    flex: 1;
+    background: #1a1a1a;
+    color: #f5f0e8;
+    border: none;
+    border-radius: 2px;
+    padding: 18px 14px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60px; height: 100%;
+    background: rgba(255,255,255,0.06);
+    transform: skewX(-20deg);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    50%, 100% { left: 120%; }
+  }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  .trust-check {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd8ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+</style>
+
+<div class="ad">
+  <div class="header">
+    <div class="brand-name">Sonique</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-bg-circles">
+      <div class="bg-ring" style="width:420px;height:420px;"></div>
+      <div class="bg-ring" style="width:300px;height:300px;"></div>
+      <div class="bg-ring" style="width:180px;height:180px;"></div>
+    </div>
+
+    <div class="sound-waves">
+      <div class="wave-ring"></div>
+      <div class="wave-ring"></div>
+      <div class="wave-ring"></div>
+    </div>
+
+    <div class="speaker-wrap">
+      <svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bodyGrad" cx="38%" cy="28%" r="70%">
+            <stop offset="0%" stop-color="#3a3a3a"/>
+            <stop offset="55%" stop-color="#1c1c1c"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </radialGradient>
+          <radialGradient id="coneGrad" cx="42%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#2e2e2e"/>
+            <stop offset="50%" stop-color="#141414"/>
+            <stop offset="100%" stop-color="#080808"/>
+          </radialGradient>
+          <radialGradient id="dustcapGrad" cx="35%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#444"/>
+            <stop offset="100%" stop-color="#111"/>
+          </radialGradient>
+          <radialGradient id="shadowGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.5)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+          </radialGradient>
+          <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#606060"/>
+            <stop offset="40%" stop-color="#252525"/>
+            <stop offset="100%" stop-color="#4a4a4a"/>
+          </linearGradient>
+          <linearGradient id="accentRing" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c07010"/>
+            <stop offset="50%" stop-color="#e8a020"/>
+            <stop offset="100%" stop-color="#c07010"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="85" cy="162" rx="58" ry="6" fill="url(#shadowGrad)" opacity="0.6"/>
+
+        <circle cx="85" cy="85" r="76" fill="url(#rimGrad)"/>
+        <circle cx="85" cy="85" r="72" fill="url(#bodyGrad)"/>
+
+        <circle cx="85" cy="85" r="60" fill="#111" stroke="#1f1f1f" stroke-width="1"/>
+
+        <circle cx="85" cy="85" r="56" fill="url(#coneGrad)"/>
+
+        <circle cx="85" cy="85" r="54" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <circle cx="85" cy="85" r="50" fill="none" stroke="#202020" stroke-width="0.5"/>
+        <circle cx="85" cy="85" r="44" fill="none" stroke="#222" stroke-width="0.5"/>
+        <circle cx="85" cy="85" r="38" fill="none" stroke="#1e1e1e" stroke-width="0.5"/>
+        <circle cx="85" cy="85" r="30" fill="none" stroke="#1e1e1e" stroke-width="0.5"/>
+
+        <circle cx="85" cy="85" r="22" fill="url(#dustcapGrad)"/>
+        <circle cx="85" cy="85" r="22" fill="none" stroke="#3a3a3a" stroke-width="1.5"/>
+        <circle cx="85" cy="85" r="10" fill="#0d0d0d" stroke="#222" stroke-width="1"/>
+
+        <path d="M 30 55 Q 60 32 92 30" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M 35 65 Q 62 44 90 42" fill="none" stroke="#444" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+
+        <circle cx="85" cy="85" r="76" fill="none" stroke="url(#accentRing)" stroke-width="2.5"/>
+
+        <circle cx="85" cy="85" r="68" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+        <circle cx="50" cy="52" r="3" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+        <circle cx="120" cy="52" r="3" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+        <circle cx="50" cy="118" r="3" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+        <circle cx="120" cy="118" r="3" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+
+        <circle cx="78" cy="82" r="2" fill="#2a2a2a"/>
+        <circle cx="74" cy="78" r="1.5" fill="#e8a020" opacity="0.9"/>
+      </svg>
+    </div>
+
+    <div class="hero-label">Studio Monitor</div>
+  </div>
+
+  <div class="body">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Premium Audio</div>
+    </div>
+
+    <div class="product-title">NOVA<br>PRO X</div>
+    <div class="product-subtitle">Reference-grade sound. Anywhere you go.</div>
+
+    <div class="specs-row">
+      <div class="spec">
+        <span class="spec-val">360°</span>
+        <span class="spec-label">Surround</span>
+      </div>
+      <div class="spec">
+        <span class="spec-val">80W</span>
+        <span class="spec-label">Peak Power</span>
+      </div>
+      <div class="spec">
+        <span class="spec-val">24Hr</span>
+        <span class="spec-label">Battery</span>
+      </div>
+      <div class="spec">
+        <span class="spec-val">IPX7</span>
+        <span class="spec-label">Waterproof</span>
+      </div>
+    </div>
+
+    <div class="price-cta">
+      <div class="price-col">
+        <div class="price-now">$399</div>
+      </div>
+      <button class="cta-btn">Add to Cart →</button>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 4l2 2 3-3" stroke="#888" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Free shipping
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 4l2 2 3-3" stroke="#888" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        30-day returns
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 4l2 2 3-3" stroke="#888" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        2-yr warranty
+      </div>
+    </div>
+  </div>
+</div>
+
+
